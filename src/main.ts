@@ -1,6 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
+import { UsersModule } from './users/users.module';
 import { AsociadosModule } from './asociados/asociados.module';
 import { AlimentosModule } from './alimentos/alimentos.module';
 import { AccesoriosModule } from './accesorios/accesorios.module';
@@ -28,9 +29,23 @@ async function bootstrap() {
 
   */
 
+const documentBuilderLogin = new DocumentBuilder()
+  .setTitle('ZonaPet')
+  .setDescription('API REST para ecommerce ZonaPet')
+  .setVersion('1.0')
+  .setContact(
+    'Valentina Luza y/o Esteban Pizarro',
+    'www.google.com',
+    'contacto@petzone.com',
+  )
+  .build();
+
+const documentLogin = SwaggerModule.createDocument(app, documentBuilderLogin, {
+  include: [ UsersModule ]
+});  
   const documentBuilderServicios = new DocumentBuilder()
-  .setTitle('@petZone')
-  .setDescription('API REST para ecommerce @petZone')
+  .setTitle('ZonaPet')
+  .setDescription('API REST para ecommerce ZonaPet')
   .setVersion('1.0')
   .setContact(
     'Valentina Luza y/o Esteban Pizarro',
@@ -44,8 +59,8 @@ const documentServicios = SwaggerModule.createDocument(app, documentBuilderServi
 });
 
   const documentBuilderAsociados = new DocumentBuilder()
-    .setTitle('@petZone')
-    .setDescription('API REST para ecommerce @petZone')
+    .setTitle('ZonaPet')
+    .setDescription('API REST para ecommerce ZonaPet')
     .setVersion('1.0')
     .setContact(
       'Valentina Luza y/o Esteban Pizarro',
@@ -59,8 +74,8 @@ const documentServicios = SwaggerModule.createDocument(app, documentBuilderServi
   });
 
   const documentBuilderAlimentos = new DocumentBuilder()
-    .setTitle('@petZone')
-    .setDescription('API REST para ecommerce @petZone')
+    .setTitle('ZonaPet')
+    .setDescription('API REST para ecommerce ZonaPet')
     .setVersion('1.0')
     .setContact(
       'Valentina Luza y/o Esteban Pizarro',
@@ -74,8 +89,8 @@ const documentServicios = SwaggerModule.createDocument(app, documentBuilderServi
   });
   
   const documentBuilderAccesorios = new DocumentBuilder()
-    .setTitle('@petZone')
-    .setDescription('API REST para ecommerce @petZone')
+    .setTitle('ZonaPet')
+    .setDescription('API REST para ecommerce ZonaPet')
     .setVersion('1.0')
     .setContact(
       'Valentina Luza y/o Esteban Pizarro',
@@ -89,8 +104,8 @@ const documentServicios = SwaggerModule.createDocument(app, documentBuilderServi
   });
   
   const documentBuilderComunidades = new DocumentBuilder()
-  .setTitle('@petZone')
-  .setDescription('API REST para ecommerce @petZone')
+  .setTitle('ZonaPet')
+  .setDescription('API REST para ecommerce ZonaPet')
   .setVersion('1.0')
   .setContact(
     'Valentina Luza y/o Esteban Pizarro',
@@ -102,6 +117,8 @@ const documentServicios = SwaggerModule.createDocument(app, documentBuilderServi
 const documentComunidades = SwaggerModule.createDocument(app, documentBuilderComunidades, {
   include: [ ComunidadesModule ]
 });
+
+  SwaggerModule.setup('docs-login', app, documentLogin);
 
   SwaggerModule.setup('docs-asociados', app, documentAsociados);
 

@@ -18,25 +18,19 @@ import { UpdateAsociadoDto } from './dto/update-asociado.dto';
 @ApiTags('asociado')
 export class AsociadosController {
   constructor(private readonly asociadosService: AsociadosService) {}
-/*
+
   @Post()
   create(@Body() createLocalDto: CreateAsociadoDto) {
     return this.asociadosService.create(createLocalDto);
   }
-*/
-  /*
+
   @Get()
   findAll(@Req() request: Request) {
     return this.asociadosService.findAll(request);
   }
-*/
-  
-  @Get()
-  findAll() :string {
-    return "Modulo de Asociados";
-  }
 
-/*  
+  
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.asociadosService.findOne(id);
@@ -54,5 +48,5 @@ export class AsociadosController {
   remove(@Param('id') id: string) {
     return this.asociadosService.remove(id);
   }
-*/
+
 }

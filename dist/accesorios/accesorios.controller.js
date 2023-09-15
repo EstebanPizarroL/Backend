@@ -17,14 +17,36 @@ const common_1 = require("@nestjs/common");
 const common_2 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const accesorios_service_1 = require("./accesorios.service");
+const create_accesorio_dto_1 = require("./dto/create-accesorio.dto");
+const update_accesorio_dto_1 = require("./dto/update-accesorio.dto");
 let AccesoriosController = exports.AccesoriosController = class AccesoriosController {
     constructor(accesoriosService) {
         this.accesoriosService = accesoriosService;
     }
+    create(createAccesorioDto) {
+        return this.accesoriosService.create(createAccesorioDto);
+    }
     findAll(request) {
+        return this.accesoriosService.findAll(request);
         return "Modulo de Accesorios";
     }
+    findOne(id) {
+        return this.accesoriosService.findOne(id);
+    }
+    update(id, updateAccesorioDto) {
+        return this.accesoriosService.update(id, updateAccesorioDto);
+    }
+    remove(id) {
+        return this.accesoriosService.remove(id);
+    }
 };
+__decorate([
+    (0, common_2.Post)(),
+    __param(0, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_accesorio_dto_1.CreateAccesorioDto]),
+    __metadata("design:returntype", void 0)
+], AccesoriosController.prototype, "create", null);
 __decorate([
     (0, common_2.Get)(),
     __param(0, (0, common_1.Req)()),
@@ -32,6 +54,28 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AccesoriosController.prototype, "findAll", null);
+__decorate([
+    (0, common_2.Get)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AccesoriosController.prototype, "findOne", null);
+__decorate([
+    (0, common_2.Patch)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __param(1, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_accesorio_dto_1.UpdateAccesorioDto]),
+    __metadata("design:returntype", void 0)
+], AccesoriosController.prototype, "update", null);
+__decorate([
+    (0, common_2.Delete)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AccesoriosController.prototype, "remove", null);
 exports.AccesoriosController = AccesoriosController = __decorate([
     (0, common_2.Controller)('accesorios'),
     (0, swagger_1.ApiTags)('accesorio'),

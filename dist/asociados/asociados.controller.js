@@ -8,27 +8,75 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AsociadosController = void 0;
 const common_1 = require("@nestjs/common");
+const common_2 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const asociados_service_1 = require("./asociados.service");
+const create_asociado_dto_1 = require("./dto/create-asociado.dto");
+const update_asociado_dto_1 = require("./dto/update-asociado.dto");
 let AsociadosController = exports.AsociadosController = class AsociadosController {
     constructor(asociadosService) {
         this.asociadosService = asociadosService;
     }
-    findAll() {
-        return "Modulo de Asociados";
+    create(createLocalDto) {
+        return this.asociadosService.create(createLocalDto);
+    }
+    findAll(request) {
+        return this.asociadosService.findAll(request);
+    }
+    findOne(id) {
+        return this.asociadosService.findOne(id);
+    }
+    update(id, updateAsociadoDto) {
+        return this.asociadosService.update(id, updateAsociadoDto);
+    }
+    remove(id) {
+        return this.asociadosService.remove(id);
     }
 };
 __decorate([
-    (0, common_1.Get)(),
+    (0, common_2.Post)(),
+    __param(0, (0, common_2.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
+    __metadata("design:paramtypes", [create_asociado_dto_1.CreateAsociadoDto]),
+    __metadata("design:returntype", void 0)
+], AsociadosController.prototype, "create", null);
+__decorate([
+    (0, common_2.Get)(),
+    __param(0, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
 ], AsociadosController.prototype, "findAll", null);
+__decorate([
+    (0, common_2.Get)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AsociadosController.prototype, "findOne", null);
+__decorate([
+    (0, common_2.Patch)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __param(1, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_asociado_dto_1.UpdateAsociadoDto]),
+    __metadata("design:returntype", void 0)
+], AsociadosController.prototype, "update", null);
+__decorate([
+    (0, common_2.Delete)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AsociadosController.prototype, "remove", null);
 exports.AsociadosController = AsociadosController = __decorate([
-    (0, common_1.Controller)('asociados'),
+    (0, common_2.Controller)('asociados'),
     (0, swagger_1.ApiTags)('asociado'),
     __metadata("design:paramtypes", [asociados_service_1.AsociadosService])
 ], AsociadosController);

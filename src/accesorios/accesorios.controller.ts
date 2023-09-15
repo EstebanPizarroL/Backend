@@ -18,18 +18,18 @@ import { UpdateAccesorioDto } from './dto/update-accesorio.dto';
 @ApiTags('accesorio')
 export class AccesoriosController {
   constructor(private readonly accesoriosService: AccesoriosService) {}
-/*
+
   @Post()
   create(@Body() createAccesorioDto: CreateAccesorioDto) {
     return this.accesoriosService.create(createAccesorioDto);
   }
-*/
+
   @Get()
   findAll(@Req() request: Request) {
-    //return this.accesoriosService.findAll(request);
+    return this.accesoriosService.findAll(request);
     return "Modulo de Accesorios";
   }
-/*
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.accesoriosService.findOne(id);
@@ -47,5 +47,5 @@ export class AccesoriosController {
   remove(@Param('id') id: string) {
     return this.accesoriosService.remove(id);
   }
-*/
+
 }

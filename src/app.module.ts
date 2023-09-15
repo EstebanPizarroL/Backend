@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 //import { AppController } from './app.controller';
 //import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
-//import { UsersModule } from './users/users.module';
+import { UsersModule } from './users/users.module';
 import { AsociadosModule } from './asociados/asociados.module';
 import { AlimentosModule } from './alimentos/alimentos.module';
 import { AccesoriosModule } from './accesorios/accesorios.module';
@@ -18,9 +18,9 @@ import { ComunidadesModule } from './comunidad/comunidades.module';
     AlimentosModule,
     AccesoriosModule,
     ServiciosModule,
-    ComunidadesModule
+    ComunidadesModule,
     //BooksModule,
-    //UsersModule,
+    UsersModule
   ],
   //controllers: [AppController],
   //providers: [AppService],

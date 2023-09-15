@@ -18,18 +18,18 @@ import { UpdateComunidadDto } from './dto/update-comunidad.dto';
 @ApiTags('comunidad')
 export class ComunidadesController {
   constructor(private readonly comunidadesService: ComunidadesService) {}
-/*
+
   @Post()
   create(@Body() createComunidadDto: CreateComunidadDto) {
     return this.comunidadesService.create(createComunidadDto);
   }
-*/
+
   @Get()
   findAll(@Req() request: Request) {
-    //return this.comunidadesService.findAll(request);
-    return "Modulo de Cominidades";
+    return this.comunidadesService.findAll(request);
+    //return "Modulo de Cominidades";
   }
-/*
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.comunidadesService.findOne(id);
@@ -47,5 +47,5 @@ export class ComunidadesController {
   remove(@Param('id') id: string) {
     return this.comunidadesService.remove(id);
   }
-*/
+
 }

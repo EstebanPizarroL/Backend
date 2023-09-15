@@ -17,15 +17,36 @@ const common_1 = require("@nestjs/common");
 const common_2 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const servicios_service_1 = require("./servicios.service");
+const create_servicio_dto_1 = require("./dto/create-servicio.dto");
+const update_servicio_dto_1 = require("./dto/update-servicio.dto");
 let ServiciosController = exports.ServiciosController = class ServiciosController {
     constructor(serviciosService) {
         this.serviciosService = serviciosService;
     }
+    create(createServicioDto) {
+        return this.serviciosService.create(createServicioDto);
+    }
     findAll(request) {
         console.log("controller");
-        return "Modulo de Servicios";
+        return this.serviciosService.findAll(request);
+    }
+    findOne(id) {
+        return this.serviciosService.findOne(id);
+    }
+    update(id, updateServicioDto) {
+        return this.serviciosService.update(id, updateServicioDto);
+    }
+    remove(id) {
+        return this.serviciosService.remove(id);
     }
 };
+__decorate([
+    (0, common_2.Post)(),
+    __param(0, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_servicio_dto_1.CreateServicioDto]),
+    __metadata("design:returntype", void 0)
+], ServiciosController.prototype, "create", null);
 __decorate([
     (0, common_2.Get)(),
     __param(0, (0, common_1.Req)()),
@@ -33,6 +54,28 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], ServiciosController.prototype, "findAll", null);
+__decorate([
+    (0, common_2.Get)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ServiciosController.prototype, "findOne", null);
+__decorate([
+    (0, common_2.Patch)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __param(1, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_servicio_dto_1.UpdateServicioDto]),
+    __metadata("design:returntype", void 0)
+], ServiciosController.prototype, "update", null);
+__decorate([
+    (0, common_2.Delete)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ServiciosController.prototype, "remove", null);
 exports.ServiciosController = ServiciosController = __decorate([
     (0, common_2.Controller)('servicios'),
     (0, swagger_1.ApiTags)('servicio'),

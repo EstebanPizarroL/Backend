@@ -17,14 +17,35 @@ const common_1 = require("@nestjs/common");
 const common_2 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const alimentos_service_1 = require("./alimentos.service");
+const create_alimento_dto_1 = require("./dto/create-alimento.dto");
+const update_alimento_dto_1 = require("./dto/update-alimento.dto");
 let AlimentosController = exports.AlimentosController = class AlimentosController {
     constructor(alimentosService) {
         this.alimentosService = alimentosService;
     }
+    create(createAlimentoDto) {
+        return this.alimentosService.create(createAlimentoDto);
+    }
     findAll(request) {
-        return "Modulo de Alimentos";
+        return this.alimentosService.findAll(request);
+    }
+    findOne(id) {
+        return this.alimentosService.findOne(id);
+    }
+    update(id, updateAlimentoDto) {
+        return this.alimentosService.update(id, updateAlimentoDto);
+    }
+    remove(id) {
+        return this.alimentosService.remove(id);
     }
 };
+__decorate([
+    (0, common_2.Post)(),
+    __param(0, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_alimento_dto_1.CreateAlimentoDto]),
+    __metadata("design:returntype", void 0)
+], AlimentosController.prototype, "create", null);
 __decorate([
     (0, common_2.Get)(),
     __param(0, (0, common_1.Req)()),
@@ -32,6 +53,28 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], AlimentosController.prototype, "findAll", null);
+__decorate([
+    (0, common_2.Get)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AlimentosController.prototype, "findOne", null);
+__decorate([
+    (0, common_2.Patch)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __param(1, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_alimento_dto_1.UpdateAlimentoDto]),
+    __metadata("design:returntype", void 0)
+], AlimentosController.prototype, "update", null);
+__decorate([
+    (0, common_2.Delete)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], AlimentosController.prototype, "remove", null);
 exports.AlimentosController = AlimentosController = __decorate([
     (0, common_2.Controller)('alimentos'),
     (0, swagger_1.ApiTags)('alimento'),

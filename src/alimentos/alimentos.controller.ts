@@ -18,18 +18,18 @@ import { UpdateAlimentoDto } from './dto/update-alimento.dto';
 @ApiTags('alimento')
 export class AlimentosController {
   constructor(private readonly alimentosService: AlimentosService) {}
-/*
+
   @Post()
   create(@Body() createAlimentoDto: CreateAlimentoDto) {
     return this.alimentosService.create(createAlimentoDto);
   }
-*/
+
   @Get()
   findAll(@Req() request: Request) {
-    //return this.alimentosService.findAll(request);
-    return "Modulo de Alimentos";
+    return this.alimentosService.findAll(request);
+    //return "Modulo de Alimentos";
   }
-/*
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.alimentosService.findOne(id);
@@ -47,5 +47,5 @@ export class AlimentosController {
   remove(@Param('id') id: string) {
     return this.alimentosService.remove(id);
   }
-*/
+
 }

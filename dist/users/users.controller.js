@@ -75,7 +75,7 @@ __decorate([
 ], UsersController.prototype, "remove", null);
 exports.UsersController = UsersController = __decorate([
     (0, common_1.Controller)('users'),
-    (0, swagger_1.ApiTags)('user'),
+    (0, swagger_1.ApiTags)('login'),
     __metadata("design:paramtypes", [users_service_1.UsersService])
 ], UsersController);
 //# sourceMappingURL=users.controller.js.map

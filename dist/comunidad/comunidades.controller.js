@@ -17,14 +17,35 @@ const common_1 = require("@nestjs/common");
 const common_2 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
 const comunidades_service_1 = require("./comunidades.service");
+const create_comunidad_dto_1 = require("./dto/create-comunidad.dto");
+const update_comunidad_dto_1 = require("./dto/update-comunidad.dto");
 let ComunidadesController = exports.ComunidadesController = class ComunidadesController {
     constructor(comunidadesService) {
         this.comunidadesService = comunidadesService;
     }
+    create(createComunidadDto) {
+        return this.comunidadesService.create(createComunidadDto);
+    }
     findAll(request) {
-        return "Modulo de Cominidades";
+        return this.comunidadesService.findAll(request);
+    }
+    findOne(id) {
+        return this.comunidadesService.findOne(id);
+    }
+    update(id, updateComunidadDto) {
+        return this.comunidadesService.update(id, updateComunidadDto);
+    }
+    remove(id) {
+        return this.comunidadesService.remove(id);
     }
 };
+__decorate([
+    (0, common_2.Post)(),
+    __param(0, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_comunidad_dto_1.CreateComunidadDto]),
+    __metadata("design:returntype", void 0)
+], ComunidadesController.prototype, "create", null);
 __decorate([
     (0, common_2.Get)(),
     __param(0, (0, common_1.Req)()),
@@ -32,6 +53,28 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], ComunidadesController.prototype, "findAll", null);
+__decorate([
+    (0, common_2.Get)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ComunidadesController.prototype, "findOne", null);
+__decorate([
+    (0, common_2.Patch)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __param(1, (0, common_2.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, update_comunidad_dto_1.UpdateComunidadDto]),
+    __metadata("design:returntype", void 0)
+], ComunidadesController.prototype, "update", null);
+__decorate([
+    (0, common_2.Delete)(':id'),
+    __param(0, (0, common_2.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ComunidadesController.prototype, "remove", null);
 exports.ComunidadesController = ComunidadesController = __decorate([
     (0, common_2.Controller)('comunidades'),
     (0, swagger_1.ApiTags)('comunidad'),
