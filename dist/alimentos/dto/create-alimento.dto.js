@@ -21,9 +21,13 @@ __decorate([
     __metadata("design:type", String)
 ], CreateAlimentoDto.prototype, "title", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: 'Alimento' }),
+    (0, swagger_1.ApiProperty)({ example: 'Secos' }),
     __metadata("design:type", String)
-], CreateAlimentoDto.prototype, "genre", void 0);
+], CreateAlimentoDto.prototype, "category", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Perros' }),
+    __metadata("design:type", String)
+], CreateAlimentoDto.prototype, "subcategory", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
         example: 'Pedigree - Alimento Seco Perro Adulto Carne Y Vegetales',
@@ -31,13 +35,13 @@ __decorate([
     __metadata("design:type", String)
 ], CreateAlimentoDto.prototype, "description", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: 'Emprendedor 1' }),
-    __metadata("design:type", String)
-], CreateAlimentoDto.prototype, "author", void 0);
-__decorate([
-    (0, swagger_1.ApiProperty)({ example: 12 }),
+    (0, swagger_1.ApiProperty)({ example: 19990 }),
     __metadata("design:type", Number)
-], CreateAlimentoDto.prototype, "pages", void 0);
+], CreateAlimentoDto.prototype, "price", void 0);
+__decorate([
+    (0, swagger_1.ApiProperty)({ example: 'Negocio1' }),
+    __metadata("design:type", String)
+], CreateAlimentoDto.prototype, "asociado", void 0);
 __decorate([
     (0, swagger_1.ApiProperty)({
         example: 'https://laikapp.s3.amazonaws.com/dev_images_categories/PEDIGREE_LOGO_CIRCULO5.png',
@@ -45,7 +49,7 @@ __decorate([
     __metadata("design:type", String)
 ], CreateAlimentoDto.prototype, "image_url", void 0);
 __decorate([
-    (0, swagger_1.ApiProperty)({ example: ['Alimento', 'Adulto', '12'] }),
+    (0, swagger_1.ApiProperty)({ example: ['Alimento', 'Seco', 'Adulto', '12Kg'] }),
     __metadata("design:type", Array)
 ], CreateAlimentoDto.prototype, "keywords", void 0);
 //# sourceMappingURL=create-alimento.dto.js.map

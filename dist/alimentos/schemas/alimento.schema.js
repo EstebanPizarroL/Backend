@@ -16,19 +16,27 @@ let Alimento = exports.Alimento = class Alimento {
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
-], Alimento.prototype, "genre", void 0);
+], Alimento.prototype, "title", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Alimento.prototype, "category", void 0);
+__decorate([
+    (0, mongoose_1.Prop)(),
+    __metadata("design:type", String)
+], Alimento.prototype, "subcategory", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)
 ], Alimento.prototype, "description", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", String)
-], Alimento.prototype, "author", void 0);
+    __metadata("design:type", Number)
+], Alimento.prototype, "price", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
-    __metadata("design:type", Number)
-], Alimento.prototype, "pages", void 0);
+    __metadata("design:type", String)
+], Alimento.prototype, "asociado", void 0);
 __decorate([
     (0, mongoose_1.Prop)(),
     __metadata("design:type", String)

@@ -2,10 +2,12 @@
 import { Document } from 'mongoose';
 export type AlimentoDocument = Alimento & Document;
 export declare class Alimento {
-    genre: string;
+    title: string;
+    category: string;
+    subcategory: string;
     description: string;
-    author: string;
-    pages: number;
+    price: number;
+    asociado: string;
     image_url: string;
     keywords: string[];
 }

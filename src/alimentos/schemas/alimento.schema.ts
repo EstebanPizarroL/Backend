@@ -6,16 +6,22 @@ export type AlimentoDocument = Alimento & Document;
 @Schema()
 export class Alimento {
   @Prop()
-  genre: string;
+  title: string;
+
+  @Prop()
+  category: string;
+
+  @Prop()
+  subcategory: string;
 
   @Prop()
   description: string;
 
   @Prop()
-  author: string;
+  price: number;
 
   @Prop()
-  pages: number;
+  asociado: string;
 
   @Prop()
   image_url: string;
